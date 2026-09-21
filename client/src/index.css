@@ -1,0 +1,231 @@
+:root {
+  --bg: #0e1015;
+  --card: #161922;
+  --border: #252a36;
+  --text: #e6e8ee;
+  --muted: #8b93a7;
+  --accent: #6fd3c1;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 20% -10%, #1a2030 0%, var(--bg) 60%);
+}
+
+.dash {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px 16px 56px;
+}
+
+/* Top bar */
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  margin-bottom: 20px;
+}
+.brand {
+  font-size: clamp(18px, 2.4vw, 24px);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  margin: 0 0 2px;
+}
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.wave-toggle {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  max-width: 100%;
+  overflow-x: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.wave-btn {
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 13px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.wave-btn:hover {
+  color: var(--text);
+}
+.wave-btn.active {
+  background: #222836;
+  color: var(--text);
+}
+
+/* KPI cards */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.kpi {
+  min-width: 0;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.kpi-label {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.kpi-value {
+  font-size: clamp(20px, 2.6vw, 26px);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+.kpi-sub {
+  min-height: 1.3em;
+  margin-top: 4px;
+  color: var(--accent);
+  font-size: 13px;
+}
+.kpi-sub.down {
+  color: #f0a58f;
+}
+
+/* Sections and chart cards */
+.section-title {
+  margin: 26px 0 10px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+  gap: 16px;
+}
+.card {
+  min-width: 0;
+  padding: 16px 12px 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.card.wide {
+  grid-column: 1 / -1;
+}
+.card-head {
+  padding: 0 8px 8px;
+}
+.card-title {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  padding: 0 8px 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.note {
+  margin: 0;
+  padding: 6px 8px 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Gentle entrance */
+.fade-in {
+  animation: fadeUp 0.5s ease both;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+  }
+}
+
+/* Chart tooltip */
+.tip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 12px;
+  background: #0e1015;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.tip span {
+  color: var(--muted);
+}
+.tip b {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Phones */
+@media (max-width: 560px) {
+  .dash {
+    padding: 14px 12px 40px;
+  }
+  .wave-toggle {
+    width: 100%;
+  }
+  .wave-btn {
+    flex: 1;
+    padding: 8px 10px;
+  }
+  .card {
+    padding: 14px 6px 8px;
+  }
+}
