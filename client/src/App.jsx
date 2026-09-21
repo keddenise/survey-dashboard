@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import BarChartD3 from './BarChartD3';
 import LineChartD3 from './LineChartD3';
 
-const API = 'http://localhost:3000';
+const API = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 const WAVES = ['2025-Q1', '2025-Q2', '2025-Q3', '2025-Q4'];
 const VIEWS = ['all', ...WAVES];
 const CATEGORIES = WAVES.map((w) => ({ key: w, label: w.slice(5) }));

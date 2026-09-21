@@ -3,7 +3,7 @@ const cors = require('cors');
 const { MongoClient } = require('mongodb');
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: process.env.CLIENT_ORIGIN || '*' }));
 
 const client = new MongoClient(process.env.MONGODB_URI);
 const db = client.db('survey');
@@ -81,7 +81,7 @@ app.get('/results/:question_id', async (req, res) => {
 
 async function start() {
   await client.connect();
-  app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+  app.listen(process.env.PORT || 3000, () => console.log('Server is running'));
 }
 
 start();
