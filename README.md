@@ -2,7 +2,14 @@
 
 A practice project that simulates a survey-results dashboard for a software architecture survey. It covers the full path from database to chart: MongoDB stores the survey, an Express API aggregates the answers, and a React app draws them with D3.js.
 
-![Dashboard screenshot](docs/dashboard.png)
+![Overall view](docs/dash1.png)
+*Overall view with KPI cards, breakdown charts, and trend lines.*
+
+![Quarterly view](docs/dash2.png)
+*A single quarter. The AI testing question is the version that was asked in Q3.*
+
+![Mobile view](docs/dash3.png)
+*The same dashboard on a phone-sized screen.*
 
 > All survey data is randomly generated sample data. It does not come from real respondents.
 
